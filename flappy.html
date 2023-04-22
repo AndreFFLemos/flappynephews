@@ -26,14 +26,14 @@ return elem
 
 function mother(){
 this.elemm=newElement('div','mother')
-const bodym=newElement('div','theirbody')
+const bodym=newElement('div','motherbody')
 this.setheight= heightm=>bodym.style.height=`${heightm}px`
 this.elemm.appendChild(bodym)
 }
 
 function father(){
 this.elemf=newElement('div','father')
-const bodyf=newElement('div','theirbody')
+const bodyf=newElement('div','fatherbody')
 this.setheight= heightf=>bodyf.style.height=`${heightf}px`
 this.elemf.appendChild(bodyf)
 }
@@ -42,7 +42,7 @@ function parents(height,spacebetween,x){
 this.elemP=newElement('div','parents')
 
 this.parentm=new mother()
-this.parentf=new father ()
+this.parentf=new father()
 
 this.elemP.appendChild(this.parentm.elemm)
 this.elemP.appendChild(this.parentf.elemf)
