@@ -99,10 +99,8 @@ const everyone= new Allparents(700,1200,200,400)
 
 everyone.couples.forEach (couple => gamearea.appendChild(couple.elemP))
 setInterval(() => {
-    everyone.couples.forEach(couple => couple.animation())
-},1000)
-} else {console.log("The [wm-flappy] object does not exist")
-}
+    everyone.couples.forEach(couple => everyone.animation())
+})} else {console.log("The [wm-flappy] object does not exist")}
 })
     </script>
 </body>
