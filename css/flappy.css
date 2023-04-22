@@ -60,7 +60,7 @@
     position:relative;
     height:50px;
     width:50px;
-    background-color:yellow;
+    background-color:darkolivegreen;
     border-left: 2px solid #000;
     border-right: 2px solid #000;
 }
@@ -69,8 +69,8 @@
     height:50px;
     width:50px;
     background-color: green;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 .progress {
