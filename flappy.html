@@ -6,6 +6,7 @@
     <title>Flappy Nephews</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/flappy.css">
+
 </head>
 
 <body class="content">
@@ -17,6 +18,8 @@
     </div>
        
     <script>
+document.addEventListener('DOMContentLoaded', function() {
+        
 function newElement (tagName, className) {
 
 const elem = document.createElement(tagName)
@@ -61,12 +64,46 @@ this.randomspace()
 this.setX(x)
 }
 
-const b= new parents (700,300,400)
-document.querySelector('[wm-flappy]').appendChild(b.elemP)
+function Allparents (height, width, spacebetween,distance){
 
+    this.couples=[new parents(height,width,spacebetween), 
+                new parents(height,width+distance,spacebetween),
+                new parents(height,(width+distance)*2,spacebetween),
+                new parents(height,(width+distance)*3,spacebetween)]
 
+                const movement=3
 
+                //reuse the 4 couples and randomize the spacebetween on every turn
+                this.animation=()=> {
+                    this.couples.forEach (couple =>{ 
+                        couple.setX(couple.getX()-movement)
 
+                        if (couple.getX()< -couple.getwidth()){
+                            couple.setX(couple.getX()+distance*this.couples.length)
+                        couple.randomspace()
+                        }
+
+                        const halfscreen=width/2
+                        const barriercrossedhalfscreen= couple.getX() + movement >= halfscreen && 
+                        couple.getX() < halfscreen
+                          
+
+                    })
+                }
+
+}
+
+const gamearea= document.querySelector("[wm-flappy]")
+if (gamearea){
+const everyone= new Allparents(700,1200,200,400)
+
+everyone.couples.forEach (couple => gamearea.appendChild(couple.elemP))
+setInterval(() => {
+    everyone.couples.forEach(couple => couple.animation())
+},1000)
+} else {console.log("The [wm-flappy] object does not exist")
+}
+})
     </script>
 </body>
 
